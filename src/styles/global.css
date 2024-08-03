@@ -1,0 +1,76 @@
+@import url("../styles/AG/ITC-AG.css");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* FOOTER */
+  .footer-title {
+    @apply uppercase text-accent font-pjs font-semibold max-w-[18ch] text-base md:text-xl leading-4 md:leading-5;
+  }
+
+  .icon-style {
+    @apply text-2xl md:text-3xl text-accent;
+  }
+
+  .footer-elements-container {
+    @apply flex flex-row gap-1 md:gap-2;
+  }
+
+  /* VIDEO */
+  .video-element {
+    @apply w-full h-full object-cover object-center;
+  }
+
+  .video-container {
+    @apply md:h-[75vh] md:overflow-hidden;
+  }
+
+  /* SERVICIOS */
+  .servicio-container {
+    @apply flex gap-1 items-center uppercase text-balance justify-items-start hover:text-accent transition-all;
+  }
+
+  .servicio-icon {
+    @apply block text-center w-10 h-10 text-[2rem] md:w-12 md:h-12 md:text-[2.2rem] relative -bottom-1;
+  }
+
+  .servicios-title {
+    @apply leading-5 md:leading-[1.650rem] font-medium text-xl md:text-2xl max-w-[15ch];
+  }
+
+  .servicios-parrafo {
+    @apply font-light text-lg md:text-xl leading-5 md:leading-6 tracking-tight text-gray pb-8 pt-2 md:relative md:-top-2;
+  }
+
+  /* METODOLOGIA */
+
+  .metodologia-container {
+    @apply cursor-default;
+  }
+
+  .metodologia-container div.titulos {
+    @apply flex gap-2;
+  }
+
+  .metodologia-icon {
+    @apply tracking-tighter block text-center text-3xl md:text-4xl;
+  }
+  .metodologia-title {
+    @apply leading-5 md:leading-[1.650rem] font-semibold text-xl md:text-2xl;
+  }
+  .metodologia-parrafo {
+    @apply font-light text-lg md:text-xl leading-5 md:leading-6 tracking-tight text-gray pb-8 pt-1 md:pt-0 md:relative;
+  }
+
+  /* PORTFOLIO */
+  .selector-ambientes {
+    @apply appearance-none uppercase text-white text-lg md:text-xl bg-dark border border-slate-700 pl-2 pr-8 py-1 rounded-md cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500 hover:border-slate-700 bg-select-arrow bg-no-repeat bg-right bg-contain mb-2 ml-auto;
+  }
+
+  #portfolio-slider swiper-container:first-child{
+    @apply md:w-1/2
+  }
+}

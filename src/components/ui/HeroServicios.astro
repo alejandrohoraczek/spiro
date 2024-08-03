@@ -1,0 +1,214 @@
+---
+import Title from "../ui/Title.astro";
+import '../../styles/global.css'
+---
+
+<section id="hero" class="relative">
+  <!-- <div
+      id="overlay"
+      class="absolute z-0 top-0 left-0 bg-gradient-hero w-full h-full"
+    >
+    </div>
+    <div
+      id="site-slogan"
+      class="z-10 absolute top-16 w-full font-pjs font-medium text-[48px] tracking-[-3px] flex flex-col"
+    >
+      <span
+        class="block uppercase text-sm font-pjs text-gray font-extralight tracking-[-.5px] text-center"
+        >Diseñamos a medida</span
+      >
+      <span class="leading-[2.8rem] text-center text-[38px] font-normal"
+        >Tu felicidad,</span
+      >
+      <span class="leading-[1rem] text-center text-[38px] font-normal"
+        >nuestra meta.</span
+      >
+    </div>
+    <div
+      id="site-intro"
+      class="absolute z-10 bottom-2 left-2 w-2/3 font-pjs font-light text-balance text-xl text-gray leading-5 tracking-tight"
+    >
+      Transformamos los espacios con la calidez y la belleza de la madera creando
+      muebles y estructuras únicas.
+    </div> -->
+  <div id="video" class="video-container">
+    <video autoplay loop muted playsinline class="video-element">
+      <source src="/video/video-servicios.mp4" type="video/mp4" />
+      Video no soportado
+    </video>
+  </div>
+</section>
+<div id="cta" class="relative w-full">
+  <a
+    href="#contacto"
+    id="contactar"
+    class="block bg-gradient-cta py-4 md:py-7 font-extrabold text-center text-dark uppercase text-xl md:text-2xl tracking-[-.6px] hover:tracking-tighter"
+    >Contactar</a
+  >
+</div>
+<div class="mt-12">
+  <Title heading="servicios" subheading="Nuestros" />
+</div>
+<section id="servicios" class="px-2 py-3">
+  <div class="cursor-default">
+    <div
+      class="servicio-container flex gap-2"
+    >
+      <i class="fa-solid fa-comments servicio-icon"></i>
+      <h3 class="servicios-title md:max-w-[25ch]">
+        Consultoría de diseños personalizados
+      </h3>
+    </div>
+    <p class="servicios-parrafo ">
+      Trabajamos de forma cercana con cada cliente para comprender sus
+      necesidades, preferencias y estilo personal, asesorándolos en la creación
+      de diseños que se adapten a sus espacios y requisitos específicos.
+    </p>
+  </div>
+  <div class="cursor-default">
+    <div
+      class="servicio-container"
+    >
+      <i class="fa-solid fa-ruler servicio-icon"></i>
+      <h3 class="servicios-title md:max-w-[25ch]">
+        Fabricación de amoblamientos a medida
+      </h3>
+    </div>
+    <p class="servicios-parrafo ">
+      Construimos muebles a medida de alta calidad y precisión, asegurando que
+      cada pieza se adapte perfectamente al espacio y cumpla con las
+      especificaciones del diseño propuesto.
+    </p>
+  </div>
+  <div class="cursor-default">
+    <div
+      class="servicio-container"
+    >
+      <i class="fa-solid fa-swatchbook servicio-icon"></i>
+      <h3 class="servicios-title">
+        Selección de materiales
+      </h3>
+    </div>
+    <p class="servicios-parrafo ">
+      Asesoramiento en la selección de materiales adecuados para cada proyecto,
+      incluyendo terciados, laminados, aluminio y otros materiales, teniendo en
+      cuenta la durabilidad, el estilo y el presupuesto del cliente.
+    </p>
+  </div>
+  <div class="cursor-default">
+    <div
+      class="servicio-container"
+    >
+      <i class="fa-solid fa-screwdriver-wrench servicio-icon"
+      ></i>
+      <h3 class="servicios-title">
+        Instalación profesional
+      </h3>
+    </div>
+    <p class="servicios-parrafo ">
+      Ofrecemos un servicio de instalación nuestros muebles a cargo de nuestro
+      personal, en el lugar designado por el cliente, asegurando un ajuste
+      perfecto y una apariencia envidiable.
+    </p>
+  </div>
+  <div class="cursor-default">
+    <div
+      class="servicio-container"
+    >
+      <i class="fa-solid fa-handshake servicio-icon"></i>
+      <h3 class="servicios-title">
+        Servicio de posventa
+      </h3>
+    </div>
+    <p
+      class="servicios-parrafo  hover:text-white"
+    >
+      Compromiso de brindar un servicio postventa excepcional, incluyendo
+      asistencia continua, mantenimiento y reparación de muebles según sea
+      necesario.
+    </p>
+  </div>
+  <div class="cursor-default">
+    <div
+      class="servicio-container"
+    >
+      <i class="fa-solid fa-file-invoice-dollar servicio-icon"
+      ></i>
+      <h3 class="servicios-title">
+        Cotizaciones detalladas
+      </h3>
+    </div>
+    <p class="servicios-parrafo ">
+      Proporcionamos presupuestos detallados y transparentes para cada proyecto,
+      incluyendo detalles, marcas de materiales y modulaciones proyectadas, para
+      que el cliente pueda tomar decisiones informadas.
+    </p>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const serviciosSection = document.getElementById("servicios");
+    const servicioDivs = serviciosSection.querySelectorAll(".servicio-container");
+
+    servicioDivs.forEach((servicioDiv) => {
+      const titleDiv = servicioDiv;
+      const paragraph = servicioDiv.nextElementSibling;
+
+      titleDiv.addEventListener("mouseover", () => {
+        if (paragraph) {
+          paragraph.classList.remove("text-gray");
+          paragraph.classList.add("transition-all");
+          paragraph.classList.add("text-white");
+        }
+      });
+
+      titleDiv.addEventListener("mouseout", () => {
+        if (paragraph) {
+          paragraph.classList.remove("text-white");
+          paragraph.classList.add("text-gray");
+        }
+      });
+
+      paragraph.addEventListener("mouseover", () => {
+        titleDiv.classList.add("text-accent");
+        paragraph.classList.remove("text-gray");
+        paragraph.classList.add("text-white");
+      });
+
+      paragraph.addEventListener("mouseout", () => {
+        titleDiv.classList.remove("text-accent");
+        paragraph.classList.remove("text-white");
+        paragraph.classList.add("text-gray");
+      });
+    });
+  });
+</script>
+<style>
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  #contactar {
+    background: linear-gradient(
+      90deg,
+      #f6d17a 0%,
+      #fcc440 32.5%,
+      #fcc440 67.5%,
+      #f6d17a 100%
+    );
+    background-size: 200% 200%;
+
+    transition: all 0.5s ease;
+  }
+
+  #contactar:hover {
+    animation: gradientShift 1.5s ease infinite;
+  }
+</style>

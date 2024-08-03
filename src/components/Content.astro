@@ -1,0 +1,20 @@
+---
+import Hero from './Hero.astro';
+import Description from './Description.astro';
+import Links from './Links.astro';
+import Photos from './Photos.astro';
+import Office from './Office.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+
+---
+
+<main class="ml-[25%] md:ml-[20%] lg:py-2 lg:ml-auto lg:mr-auto lg:max-w-screen-lg xl:max-w-screen-xl">
+    <Hero></Hero>
+    <Description></Description>
+    <Links></Links>
+    <Photos subheading="Nuestros" heading="trabajos"></Photos>
+    <Office subheading="Nuestra" heading="oficina"></Office>
+    <Contact subheading="" heading="contacto"></Contact>
+</main>
+<Footer subheading="Más" heading="información"></Footer>

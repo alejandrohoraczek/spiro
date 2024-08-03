@@ -1,0 +1,247 @@
+---
+import Title from "../ui/Title.astro";
+---
+
+<section id="hero" class="relative">
+  <!-- <div
+      id="overlay"
+      class="absolute z-0 top-0 left-0 bg-gradient-hero w-full h-full"
+    >
+    </div>
+    <div
+      id="site-slogan"
+      class="z-10 absolute top-16 w-full font-pjs font-medium text-[48px] tracking-[-3px] flex flex-col"
+    >
+      <span
+        class="block uppercase text-sm font-pjs text-gray font-extralight tracking-[-.5px] text-center"
+        >Diseñamos a medida</span
+      >
+      <span class="leading-[2.8rem] text-center text-[38px] font-normal"
+        >Tu felicidad,</span
+      >
+      <span class="leading-[1rem] text-center text-[38px] font-normal"
+        >nuestra meta.</span
+      >
+    </div>
+    <div
+      id="site-intro"
+      class="absolute z-10 bottom-2 left-2 w-2/3 font-pjs font-light text-balance text-xl text-gray leading-5 tracking-tight"
+    >
+      Transformamos los espacios con la calidez y la belleza de la madera creando
+      muebles y estructuras únicas.
+    </div> -->
+  <div id="video" class="video-container">
+    <video autoplay loop muted playsinline class="video-element">
+      <source src="/video/video-metodologia.mp4" type="video/mp4" />
+      Video no soportado
+    </video>
+  </div>
+</section>
+<div id="cta" class="relative w-full">
+  <a
+    href="#contacto"
+    id="contacto-button"
+    class="block bg-gradient-cta py-4 font-extrabold text-center text-dark uppercase text-xl tracking-[-.6px] hover:tracking-tighter"
+    >Contactar</a
+  >
+</div>
+<div class="mt-12">
+  <Title heading="metodología" subheading="Nuestra" />
+</div>
+<section id="metodologia" class="px-2 py-3 text-pretty">
+  <div class="metodologia-container">
+    <div
+      class="titulos"
+    >
+      <span class="metodologia-icon">01</span>
+      <h3 class="metodologia-title">Consulta inicial</h3>
+    </div>
+    <p class="metodologia-parrafo">
+      El proceso comienza con una consulta inicial donde el cliente se comunica
+      con nosotros para discutir sus necesidades y visiones para el mueble a
+      medida que desean.
+    </p>
+  </div>
+  <div class="metodologia-container">
+    <div
+      class="titulos"
+    >
+      <span class="metodologia-icon">02</span>
+      <h3 class="metodologia-title">Diseño</h3>
+    </div>
+    <p class="metodologia-parrafo">
+      Una vez recopilados los datos necesarios, llevamos adelante el diseño y
+      enviamos fotos para la aprobación final del cliente.
+    </p>
+  </div>
+  <div class="metodologia-container">
+    <div
+      class="titulos"
+    >
+      <span class="metodologia-icon">03</span>
+      <h3 class="metodologia-title max-w-[15ch]">Presupuesto</h3>
+    </div>
+    <p class="metodologia-parrafo">
+      Realizamos el presupuesto, detallando materiales y modulación de los
+      muebles. Una vez definidos los detalles, procedemos a la redacción de un
+      contrato donde quedan estipulados los alcances y compromisos asumidos por
+      las partes en la realización del proyecto.
+    </p>
+  </div>
+  <div class="metodologia-container">
+    <div
+      class="titulos"
+    >
+      <span class="metodologia-icon">04</span>
+      <h3 class="metodologia-title max-w-[15ch]">Fabricación</h3>
+    </div>
+    <p class="metodologia-parrafo">
+      Se procede a la producción del mueble con los materiales necesarios para
+      el proyecto, asegurando que cumplan con los estándares de calidad y las
+      preferencias del cliente
+    </p>
+  </div>
+  <div class="metodologia-container">
+    <div
+      class="titulos"
+    >
+      <span class="metodologia-icon">05</span>
+      <h3 class="metodologia-title max-w-[15ch]">Entrega</h3>
+    </div>
+    <p
+      class="metodologia-parrafo"
+    >
+      Antes de la entrega, realizamos una inspección final del mueble para
+      asegurarse de que cumple con los estándares de calidad, se embala y se
+      envía el mismo para su colocación.
+    </p>
+  </div>
+  <div class="metodologia-container">
+    <div
+      class="titulos"
+    >
+      <span class="metodologia-icon">06</span>
+      <h3 class="metodologia-title max-w-[15ch]">Montaje</h3>
+    </div>
+    <p class="metodologia-parrafo">
+      El equipo de entrega lleva el mueble al lugar designado y, si es
+      necesario, se encarga del montaje e instalación según las instrucciones
+      del cliente.
+    </p>
+  </div>
+  <div class="metodologia-container">
+    <div
+      class="titulos"
+    >
+      <span class="metodologia-icon"
+        >07</span
+      >
+      <h3 class="metodologia-title max-w-[15ch] md:max-w-[25ch]">
+        Seguimiento y posventa
+      </h3>
+    </div>
+    <p class="metodologia-parrafo">
+      Después de la entrega, la empresa realiza un seguimiento con el cliente
+      para asegurarse de su satisfacción con el producto y abordar cualquier
+      problema o inquietud que pudiera surgir. Se ofrece servicio posventa para
+      garantizar la satisfacción continua del cliente.
+    </p>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const serviciosSection = document.getElementById("servicios");
+    const servicioDivs = serviciosSection.querySelectorAll("div > div");
+
+    servicioDivs.forEach((servicioDiv) => {
+      const titleDiv = servicioDiv;
+      const number = titleDiv.firstChild.nextSibling;
+      const title = titleDiv.lastChild.previousSibling;
+      console.log(title);
+      const paragraph = servicioDiv.nextElementSibling;
+
+      titleDiv.addEventListener("mouseover", () => {
+        if (paragraph) {
+          paragraph.classList.remove("text-gray");
+          paragraph.classList.add("transition-all");
+          paragraph.classList.add("text-white");
+          number.classList.add("font-bold");
+          title.classList.remove("font-semibold");
+          title.classList.add("font-bold");
+        }
+      });
+
+      titleDiv.addEventListener("mouseout", () => {
+        if (paragraph) {
+          paragraph.classList.remove("text-white");
+          number.classList.remove("font-bold");
+          title.classList.remove("font-bold");
+          title.classList.add("font-semibold");
+          paragraph.classList.add("text-gray");
+        }
+      });
+
+      paragraph.addEventListener("mouseover", () => {
+        titleDiv.classList.add("text-accent");
+        paragraph.classList.remove("text-gray");
+        paragraph.classList.add("text-white");
+        number.classList.add("font-bold");
+        title.classList.remove("font-semibold");
+        title.classList.add("font-bold");
+
+      });
+
+      paragraph.addEventListener("mouseout", () => {
+        titleDiv.classList.remove("text-accent");
+        paragraph.classList.remove("text-white");
+        number.classList.remove("font-bold");
+        title.classList.remove("font-bold")
+        title.classList.add("font-semibold")
+        paragraph.classList.add("text-gray");
+      });
+    });
+  });
+</script>
+<style>
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer components {
+      .titulos {
+        @apply flex gap-1 items-baseline uppercase text-balance justify-items-start hover:text-accent transition-all duration-700;
+      }
+
+      .parrafos {
+        @apply font-light text-lg leading-5 tracking-tight text-gray pb-8 pt-1 duration-700;
+      }
+    }
+
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  #contacto-button {
+    background: linear-gradient(
+      90deg,
+      #f6d17a 0%,
+      #fcc440 32.5%,
+      #fcc440 67.5%,
+      #f6d17a 100%
+    );
+    background-size: 200% 200%;
+
+    transition: all 0.5s ease;
+  }
+
+  #contacto-button:hover {
+    animation: gradientShift 1.5s ease infinite;
+  }
+</style>

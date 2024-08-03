@@ -1,0 +1,78 @@
+---
+import Separator from "./ui/Separator.astro";
+import Title from "./ui/Title.astro";
+
+interface Props {
+  heading: string;
+  subheading: string;
+}
+const { heading, subheading } = Astro.props;
+---
+
+<div class="ml-[25%] md:ml-[20%] bg-[#030302]">
+  <Separator />
+  <Title heading={heading} subheading={subheading} />
+  <footer id="footer" class="py-4 pl-2 md:flex md:gap-4 ">
+    <address class="not-italic flex flex-col flex-grow gap-2">
+      <div class="">
+        <div class="footer-elements-container items-center">
+          <i class="fa-solid fa-location-dot text-2xl text-accent"></i>
+          <h4
+            class="footer-title"
+          >
+            Oficinas de diseño y comerciales
+          </h4>
+        </div>
+        <p class="font-light md:text-xl">Diagonal 94 N°95 PISO 1</p>
+      </div>
+      <div>
+        <div class="footer-elements-container items-baseline">
+          <i class="fa-solid fa-phone text-2xl text-accent"></i>
+          <h4
+            class="footer-title"
+          >
+            Teléfono de contacto
+          </h4>
+        </div>
+        <a class="font-light md:text-xl" href="tel:+5492216925138">+54 9 221 692 5138</a>
+      </div>
+      <div>
+        <div class="footer-elements-container items-baseline">
+          <i class="fa-solid fa-envelope text-2xl text-accent"></i>
+          <h4
+            class="footer-title"
+          >
+            E-mail
+          </h4>
+        </div>
+        <a class="font-light md:text-xl" href="mailto:info@spirodesign.com.ar"
+          >info@spirodesign.com.ar</a
+        >
+      </div>
+    </address>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.753248575681!2d-57.96194600000002!3d-34.937724900000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e7a80d923bf3%3A0xab024d225cc91176!2sSpiro%20Design!5e0!3m2!1ses!2sar!4v1722380598949!5m2!1ses!2sar"
+      width="100%"
+      height="500px"
+      class="pr-2 my-6 md:h-[30vh] md:my-0 md:basis-1/4 md:flex-grow "
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </footer>
+  <Separator />
+  <div class="pt-7 pb-2 pr-2 flex flex-col items-end">
+    <a
+      href="https://www.especial.ar"
+      target="_blank"
+      title="Especial - Webmakers"
+    >
+      <span class="font-light tracking-tighter">Hecho por</span>
+      <img
+        src="svg/especial.svg"
+        alt="Hecho por Especial - Webmakers"
+        class="relative -top-1 w-24"
+      />
+    </a>
+  </div>
+</div>

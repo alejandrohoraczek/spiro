@@ -1,0 +1,18 @@
+---
+import Separator from './ui/Separator.astro';
+import Title from './ui/Title.astro';
+import Slider from './ui/Slider.astro';
+
+interface Props {
+  heading: string;
+  subheading: string;
+}
+const { heading, subheading } = Astro.props;
+---
+
+<Separator />
+<Title heading={heading} subheading={subheading} />
+
+<section id="office" class="pl-2 pr-2 pb-14 ">
+<Slider></Slider>
+</section>

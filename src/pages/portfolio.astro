@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Menu from "../components/Menu.astro";
+import Links from "../components/Links.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import string from "../strings";
+import HeroPortfolio from "../components/ui/HeroPortfolio.astro";
+---
+
+<Layout title={string.pageTitle}>
+  <Menu />
+  <main class="ml-[25%] md:ml-[20%]">
+    <HeroPortfolio />
+    <Links />
+
+    <Contact subheading="" heading="contacto" />
+</main>
+<Footer subheading="Más" heading="información" />
+  </Layout>
+
+<style>
+  body {
+    color: white;
+  }
+</style>

@@ -1,0 +1,25 @@
+---
+import { icon } from '@fortawesome/fontawesome-svg-core';
+import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+
+interface Props {
+  name: IconName;
+  prefix?: IconPrefix;
+  class?: string;
+}
+
+const { name, prefix = 'fas', class: className = '' } = Astro.props;
+const iconResult = icon({ prefix, iconName: name });
+---
+
+{iconResult && (
+  <svg 
+    class={`svg-inline--fa fa-${name} ${className}`} 
+    aria-hidden="true" 
+    focusable="false" 
+    role="img"
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox={`0 0 ${iconResult.icon[0]} ${iconResult.icon[1]}`}
+    set:html={iconResult.html[0]}
+  />
+)}

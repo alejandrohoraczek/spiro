@@ -1,0 +1,23 @@
+---
+import { office } from "../js/images";
+import Image from "astro/components/Image.astro";
+---
+
+<swiper-container
+  class="swiper w-full h-full"
+  navigation
+  scrollBar
+  effect="fade"
+  speed="500"
+  autoplay
+  loop="true"
+>
+  {
+    office.map((image) => (
+      <swiper-slide key={image.src.src}>
+        <img src={image.src.src} alt={image.alt} />
+      </swiper-slide>
+    ))
+  }
+
+</swiper-container>

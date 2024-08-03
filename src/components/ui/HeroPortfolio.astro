@@ -1,0 +1,254 @@
+---
+import Title from "../ui/Title.astro";
+import "../../styles/global.css";
+---
+
+<section id="hero" class="relative">
+  <!-- <div
+      id="overlay"
+      class="absolute z-0 top-0 left-0 bg-gradient-hero w-full h-full"
+    >
+    </div>
+    <div
+      id="site-slogan"
+      class="z-10 absolute top-16 w-full font-pjs font-medium text-[48px] tracking-[-3px] flex flex-col"
+    >
+      <span
+        class="block uppercase text-sm font-pjs text-gray font-extralight tracking-[-.5px] text-center"
+        >Diseñamos a medida</span
+      >
+      <span class="leading-[2.8rem] text-center text-[38px] font-normal"
+        >Tu felicidad,</span
+      >
+      <span class="leading-[1rem] text-center text-[38px] font-normal"
+        >nuestra meta.</span
+      >
+    </div>
+    <div
+      id="site-intro"
+      class="absolute z-10 bottom-2 left-2 w-2/3 font-pjs font-light text-balance text-xl text-gray leading-5 tracking-tight"
+    >
+      Transformamos los espacios con la calidez y la belleza de la madera creando
+      muebles y estructuras únicas.
+    </div> -->
+  <div id="video" class="video-container">
+    <video autoplay muted loop playsinline class="video-element">
+      <source src="/video/video-portfolio.mp4" type="video/mp4" />
+      Video no soportado
+    </video>
+  </div>
+</section>
+<div id="cta" class="relative w-full">
+  <a
+    href="#contacto"
+    id="contactar"
+    class="block bg-gradient-cta py-4 font-extrabold text-center text-dark uppercase text-xl tracking-[-.6px] hover:tracking-tighter"
+    >Contactar</a
+  >
+</div>
+<div class="mt-12">
+  <Title heading="portfolio" subheading="Nuestro" />
+</div>
+<section id="portfolio" class="px-2 pb-3">
+  <div class="relative w-fit ml-auto">
+    <select id="ambientes" class="selector-ambientes">
+      <option value="">Seleccionar ambiente</option>
+      <option value="cocinas">Cocinas</option>
+      <option value="livings">Livings</option>
+      <option value="oficinas">Oficinas</option>
+      <option value="dormitorios">Dormitorios</option>
+      <option value="escritorios">Escritorios</option>
+      <option value="muebles">Muebles</option>
+    </select>
+  </div>
+  <div id="portfolio-slider">
+    <!-- 
+    <swiper-container
+      class="swiper w-full h-full"
+      navigation
+      scrollBar
+      effect="fade"
+      speed="500"
+      autoplay
+      loop="true"
+      thumbs-swiper=".swiper-thumbnails"
+    >
+      <swiper-slide key="/images/photos/1.JPG">
+        <img src="/images/photos/1.JPG" alt="Portfolio" />
+      </swiper-slide>
+      <swiper-slide key="/images/photos/2.JPG">
+        <img src="/images/photos/2.JPG" alt="Portfolio" />
+      </swiper-slide>
+      <swiper-slide key="/images/photos/3.JPG">
+        <img src="/images/photos/3.JPG" alt="Portfolio" />
+      </swiper-slide>
+      <swiper-slide key="/images/photos/4.JPG">
+        <img src="/images/photos/4.JPG" alt="Portfolio" />
+      </swiper-slide>
+    </swiper-container>
+    <swiper-container
+      class="swiper-thumbnails"
+      loop="true"
+      slides-per-view="3"
+      watch-slides-progress="true"
+      free-mode="true"
+    >
+    <swiper-slide key="/images/photos/1.JPG">
+        <img src="/images/photos/1.JPG" alt="Portfolio" />
+      </swiper-slide>
+      <swiper-slide key="/images/photos/2.JPG">
+        <img src="/images/photos/2.JPG" alt="Portfolio" />
+      </swiper-slide>
+      <swiper-slide key="/images/photos/3.JPG">
+        <img src="/images/photos/3.JPG" alt="Portfolio" />
+      </swiper-slide>
+      <swiper-slide key="/images/photos/4.JPG">
+        <img src="/images/photos/4.JPG" alt="Portfolio" />
+      </swiper-slide>
+    </swiper-container> -->
+  </div>
+</section>
+
+<script>
+  import { set1, set2, set3 } from "../js/portfolio";
+
+  const links = document.querySelectorAll("#ambientes > li");
+  const sliderContainer = document.querySelector("#portfolio-slider");
+  const slider = document.createElement("swiper-container");
+  const sliderThumb = document.createElement("swiper-container");
+
+  // crear slider principal y añadirle las fotos del set1
+  slider.setAttribute("class", "swiper w-full h-full");
+  slider.setAttribute("loop", "true");
+  slider.setAttribute("navigation", "");
+  slider.setAttribute("scrollBar", "");
+  slider.setAttribute("effect", "fade");
+  // slider.setAttribute('autoplay', '')
+  slider.setAttribute("thumbs-swiper", ".swiper-thumbnails");
+
+  sliderThumb.setAttribute("class", "swiper-thumbnails");
+  sliderThumb.setAttribute("loop", "true");
+  sliderThumb.setAttribute("direction", "horizontal");
+  sliderThumb.setAttribute("autoplay", "");
+  sliderThumb.setAttribute("slides-per-view", "4");
+  sliderThumb.setAttribute("watch-slides-progress", "true");
+  sliderThumb.setAttribute("free-mode", "true");
+
+  set1.forEach((img, index) => {
+    //crear slider padre
+    const swiperSlide = document.createElement("swiper-slide");
+    swiperSlide.setAttribute("key", img.src);
+
+    const imgElement = document.createElement("img");
+    imgElement.setAttribute("src", img.src);
+    imgElement.setAttribute("alt", img.alt);
+
+    swiperSlide.appendChild(imgElement);
+    slider.appendChild(swiperSlide);
+
+    // crear slider con thumbs
+    const thumbSlide = document.createElement("swiper-slide");
+    thumbSlide.setAttribute("key", img.src);
+    thumbSlide.classList.add("swiper-slide");
+    thumbSlide.classList.add("opacity-40");
+
+    const imgThumb = document.createElement("img");
+    imgThumb.setAttribute("src", img.thumb);
+    imgThumb.setAttribute("alt", img.alt);
+
+    thumbSlide.appendChild(imgThumb);
+    sliderThumb.appendChild(thumbSlide);
+  });
+  sliderContainer.appendChild(slider);
+  sliderContainer.appendChild(sliderThumb);
+
+  // document.addEventListener('DOMContentLoaded', (e) => {
+  //   // ver que onda el tamaño de la ventana para saber la direccion del slider de los thumnails
+  //   if (window.innerWidth > 768) {
+  //     sliderThumb.setAttribute('direction', 'vertical');
+      
+  // }
+  // });
+
+  slider.addEventListener("load", (e) => {
+    const thumbs = sliderThumb.querySelectorAll("swiper-slide");
+    console.log("si esta andando");
+    thumbs.forEach((t, index) => {
+      if (t.classList.contains("swiper-slide-thumb-active")) {
+        t.style.opacity = "1";
+      } else {
+        t.style.opacity = "";
+        t.classList.add("opacity-40");
+      }
+    });
+  });
+
+
+
+  slider.addEventListener("swipertransitionend", (e) => {
+    const thumbs = sliderThumb.querySelectorAll("swiper-slide");
+    thumbs.forEach((t, index) => {
+      if (t.classList.contains("swiper-slide-thumb-active")) {
+        t.style.opacity = "1";
+      } else {
+        t.style.opacity = "";
+        t.classList.add("opacity-40");
+      }
+    });
+  });
+</script>
+
+<style>
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer components {
+    .item-portfolio {
+      @apply hover:text-accent cursor-pointer;
+    }
+
+    /* .swiper-thumbnails swiper-slide:not(:hover) {
+        @apply opacity-40 transition-opacity duration-300;
+      }
+
+      .swiper-thumbnails swiper-slide.swiper-slide-thumb-active {
+        @apply opacity-100;
+      } */
+  }
+
+  .swiper-thumbnails swiper-slide img {
+    opacity: 0.4 !important;
+    transition: opacity 0.3s ease;
+  }
+
+  .swiper-thumbnails swiper-slide.swiper-slide-thumb-active img {
+    opacity: 1 !important;
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  #contacto {
+    background: linear-gradient(
+      90deg,
+      #f6d17a 0%,
+      #fcc440 32.5%,
+      #fcc440 67.5%,
+      #f6d17a 100%
+    );
+    background-size: 200% 200%;
+
+    transition: all 0.5s ease;
+  }
+
+  #contacto:hover {
+    animation: gradientShift 1.5s ease infinite;
+  }
+</style>

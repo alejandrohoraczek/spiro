@@ -1,0 +1,40 @@
+---
+import Image from "astro/components/Image.astro";
+import Separator from "./ui/Separator.astro";
+import Title from "./ui/Title.astro";
+import { images } from "./js/images";
+
+interface Props {
+  heading: string;
+  subheading: string;
+}
+
+const { heading, subheading } = Astro.props;
+---
+
+<Separator />
+<Title heading={heading} subheading={subheading} />
+
+<section id="photos" class="pl-2 pb-7">
+  <div class="masonry-grid">
+    {
+      images.map((image) => (
+        <div class="masonry-item w-[32%] pb-1">
+          <Image src={image.src} alt={image.alt} />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const grid = document.querySelector(".masonry-grid");
+    new Masonry(grid, {
+      itemSelector: ".masonry-item",
+      columnWidth: ".masonry-item",
+      percentPosition: true,
+      gutter: 4,
+    });
+  });
+</script>

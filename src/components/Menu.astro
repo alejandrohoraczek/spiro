@@ -1,0 +1,122 @@
+---
+import "../fontawesome";
+import Icon from "./Icon.astro";
+import { Image } from "astro:assets";
+import spiroLogo from "../../public/svg/logo-spiro.svg";
+---
+
+<header
+  class="w-1/4 md:w-1/5 h-full lg:w-full lg:h-auto lg:min-h-24 fixed lg:block lg:content-around overflow-y-hidden bg-[#030302] lg:bg-transparent lg:border-b lg:border-[rgba(255,255,255,0.1)] z-50"
+>
+  <div
+    class="hidden lg:block lg:fixed lg:w-full lg:min-h-24 lg:bg-[rgb(224,138,138)] lg:blur-sm z-10 glass"
+  >
+  </div>
+  <div
+    class="main-header-container h-full px-0 lg:px-2 lx:px-4 lg:h-auto lg:max-w-screen-lg xl:max-w-screen-xl lg:mx-auto lg:flex lg:items-center lg:justify-between"
+  >
+    <div
+      id="site-branding"
+      class="h-full lg:h-24 py-16 lg:py-0 lg:pr-6 flex flex-col items-center justify-between border-r border-x-white lg:border-x-[rgba(255,255,255,0.1)] lg:flex-row-reverse lg:justify-end lg:gap-2"
+    >
+      <div class="w-8 lg:hidden" aria-label="Abrir menú de navegación">
+        <a href="#">
+          <Icon name="bars" class="text-2xl text-white" />
+        </a>
+      </div>
+      <div
+        id="site-title"
+        class="text-white font-aw uppercase -rotate-90 lg:rotate-0 text-2xl lg:text-3xl tracking-wide"
+      >
+        <h1><a href="/"> Spiro </a></h1>
+        <!-- <span class="font-pjs font-medium text-sm relative top-[-16px] left-4">Design</span> -->
+      </div>
+      <div id="spiro-logo" class="w-8">
+        <a href="/">
+          <Image src={spiroLogo} alt="Spiro Design - Diseñamos a medida" />
+        </a>
+      </div>
+    </div>
+    <nav
+      id="nav-desktop"
+      class="hidden lg:flex text-lg font-semibold gap-8 uppercase justify-center items-center h-full"
+    >
+      <a href="/servicios" class="focus:text-accent hover:text-accent"
+        >Servicios</a
+      >
+      <a href="/metodologia" class="focus:text-accent hover:text-accent"
+        >Metodología</a
+      >
+      <a href="/portfolio" class="focus:text-accent hover:text-accent"
+        >Portfolio</a
+      >
+      <a href="#contacto" class="focus:text-accent hover:text-accent"
+        >Contacto</a
+      >
+    </nav>
+    <div
+      class="hidden lg:flex w-fit justify-items-center items-center pl-12 lg:h-24 border-l lg:border-x-[rgba(255,255,255,0.1)]"
+    >
+      <a
+        href="#contacto"
+        class="block xl:px-7 xl:py-3 px-6 py-2 lg:min-w-32 uppercase font-extrabold text-xl xl:text-[1.35rem] transition-all center gradient-border"
+        >Contactar</a
+      >
+    </div>
+  </div>
+</header>
+<nav class="hidden z-30 absolute top-0 left-0">
+  <div
+    id="mobile-menu"
+    class="w-screen h-screen bg-menu text-white font-bold uppercase tracking-tighter text-3xl"
+  >
+    <ul class="flex flex-col items-center justify-center h-full">
+      <li class="hover:text-accent">
+        <a class="" href="/">Inicio</a>
+      </li>
+      <li class="hover:text-accent">
+        <a href="/servicios">Servicios</a>
+      </li>
+      <li class="hover:text-accent">
+        <a href="/metodologia">Metodología</a>
+      </li>
+      <li class="hover:text-accent">
+        <a href="/portfolio">Portfolio</a>
+      </li>
+      <li class="hover:text-accent">
+        <a href="#contacto">Contacto</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<style>
+  .gradient-border {
+    display: block;
+    border: 3px solid;
+    background-image: linear-gradient(
+      90deg,
+      #fcc440 0%,
+      #f6d17a 32.5%,
+      #f8cd68 67.5%,
+      #fcc440 100%
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      90deg,
+      #fcc440 0%,
+      #f6d17a 32.5%,
+      #f8cd68 67.5%,
+      #fcc440 100%
+    );
+    border-width: 3px;
+  }
+
+  .glass {
+    background: rgba(0, 0, 0, 0.01);
+    backdrop-filter: blur(13.4px);
+    -webkit-backdrop-filter: blur(13.4px);
+    z-index: -99;
+  }
+</style>

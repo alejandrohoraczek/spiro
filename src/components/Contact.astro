@@ -1,0 +1,105 @@
+---
+import Separator from "./ui/Separator.astro";
+import Title from "./ui/Title.astro";
+
+interface Props {
+  heading: string;
+  subheading: string;
+}
+const { heading, subheading } = Astro.props;
+---
+<div id="contacto" class="lg:relative lg:-top-24 "></div>
+<div id="contacto-form">
+
+  <Separator />
+  <Title heading={heading} subheading={subheading} />
+  
+  <div class="mt-4 pb-16">
+    <form method="POST" class="flex flex-col gap-2 md:gap-3">
+      <fieldset class="flex flex-col px-2">
+        <label for="nombre" class="uppercase pl-1 md:text-lg">Nombre</label>
+        <input
+          class="pl-2 pb-1 text-slate-300 p-1 md:p-2 bg-dark border-[1px] border-[#FFFFFF]/[.15] rounded-xl hover:border-[#FFFFFF]/[.25]"
+          placeholder=""
+          type="text"
+          id="nombre"
+          name="nombre"
+          required
+          maxlength="40"
+        />
+      </fieldset>
+      <fieldset class="flex flex-col pl-2 pr-2">
+        <label for="email" class="uppercase pl-1 md:text-lg">E-mail</label>
+        <input
+          class="pl-2 pb-1 text-slate-300 p-1 md:p-2 bg-dark border-[1px] border-[#FFFFFF]/[.15] rounded-xl hover:border-[#FFFFFF]/[.25]"
+          type="email"
+          id="email"
+          name="email"
+          required
+          maxlength="30"
+        />
+      </fieldset>
+      <fieldset class="flex flex-col pl-2 pr-2">
+        <label for="asunto" class="uppercase pl-1 md:text-lg">Asunto</label>
+        <input
+          class="pl-2 pb-1 text-slate-300 p-1 md:p-2 bg-dark border-[1px] border-[#FFFFFF]/[.15] rounded-xl hover:border-[#FFFFFF]/[.25]"
+          type="text"
+          id="asunto"
+          name="asunto"
+          required
+          maxlength="70"
+        />
+      </fieldset>
+      <fieldset class="flex flex-col pl-2 pr-2">
+        <label for="mensaje" class="uppercase pl-1 md:text-lg">Mensaje</label>
+        <textarea
+          class="pl-2 pb-1 text-slate-300 min-h-32 p-1 md:p-2 md:text-xl bg-dark border-[1px] border-[#FFFFFF]/[.15] rounded-xl hover:border-[#FFFFFF]/[.25]"
+          placeholder="Escribinos tu mensaje"
+          id="mensaje"
+          name="mensaje"
+          required
+          maxlength="1500"
+          >Hola equipo Spiro, </textarea>
+      </fieldset>
+  
+      <button id="enviar" type="submit" class="py-5 md:py-7 mt-8 w-full font-pjs font-extrabold uppercase text-xl md:text-2xl text-dark tracking-normal hover:tracking-tighter">Enviar</button>
+    </form>
+  </div>
+</div> 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const textarea = document.querySelector("#mensaje");
+
+    textarea.addEventListener('focus', function() {
+    setTimeout(() => {
+      const length = textarea.textContent.length;
+      textarea.setSelectionRange(length, length);
+    }, 0.2); 
+  });
+  });
+</script>
+
+<style>
+  @keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+#enviar{
+  background: linear-gradient(90deg, #F6D17A 0%, #FCC440 32.5%, #FCC440 67.5%, #F6D17A 100%);
+  background-size: 200% 200%;
+  
+  transition: all 0.5s ease;
+}
+
+#enviar:hover{
+  animation: gradientShift 1.5s ease infinite;
+  
+  
+}
+
+</style>
